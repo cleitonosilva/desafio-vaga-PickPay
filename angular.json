@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "desafioPickpay"
+  "defaultProject": "desafioPickpay",
+  "cli": {
+    "analytics": "71d5912d-9324-48a4-adcf-ee501736b824"
+  }
 }
