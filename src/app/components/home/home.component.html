@@ -1,14 +1,14 @@
 
 <div class="listUser">
-    <div class="box--listUser">
+    <div class="box--listUser" *ngFor="let item of usuarios" >
         <div class="listUser--img">
-            <div class="img--circle"></div>
+            <img class="img--circle" [src]="item.img">
         </div>
         <div class="listUser--info">
-            <p class="info--text">Nome do usuário: <br> Id:</p> 
+            <p class="info--text">Nome do usuário:{{item.name}} <br> Id: {{item.id}}</p> 
         </div>
         <div class="listUser--pay">
-            <button class="pay--btn">Pagar</button>
+            <button [value]="item.name" (click)="pegarNome($event.target)" (click)="open()" class="pay--btn">Pagar</button>
         </div>            
     </div>
 </div>
