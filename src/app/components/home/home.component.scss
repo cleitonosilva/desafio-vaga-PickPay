@@ -1,9 +1,37 @@
+.project--full{
+    display: flex;
+    flex-direction: column;
+
+.box--header{
+    height: 160px;
+    position: static;
+    position: fixed;
+    background: #fff;
+    z-index: 1000;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+.header--project{
+    width: 35%;
+    margin-top: 10px;
+    height: 140px;
+}
+ .header-title{
+     width: 35%;
+     display: flex;
+     justify-content:flex-end;
+     
+ }
+}
 
 .listUser{
  display: flex;
  align-items: center;
  justify-content: center; 
  flex-direction: column;
+ margin-top: 160px;
   
     .box--listUser{
     width: 80%;
@@ -62,5 +90,6 @@
 
 
 
+}
 }
 }

@@ -16,7 +16,7 @@ import { UsuariosService } from 'src/app/services/usuarios.service';
 </div>   
 
     <div class="modal-body box--body">
-          <p>{{mensagemDeAprovacao}}</p>
+          <h4>{{mensagemDeAprovacao}}</h4>
     </div>
     
   `
@@ -40,7 +40,7 @@ export class CardListComponent implements OnInit {
   msg: string;
   usuarios: Usuario[] =[] ;
   usuarioDestino: any;
-  valor: number = 0 ;
+  valor: any = 0 ;
   numeroCartao: number ;
   cardBusca: any;
   confirmarCartaoValido: string ;
@@ -109,7 +109,7 @@ efetuarPagamento(){
       }
   }
 }
-    openMOdal(msg : any) {
+    openMOdal(msg? : any) {
       const modalRef = this.modalService.open(ModalMsg);
       modalRef.componentInstance.mensagemDeAprovacao = msg;
     }
