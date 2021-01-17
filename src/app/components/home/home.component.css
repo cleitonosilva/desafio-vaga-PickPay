@@ -1,0 +1,85 @@
+.listUser {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.listUser .box--listUser {
+  width: 80%;
+  height: 150px;
+  background: #353655;
+  margin-top: 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.listUser .box--listUser .listUser--img {
+  width: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.listUser .box--listUser .listUser--img .img--circle {
+  width: 130px;
+  height: 130px;
+  border-radius: 100%;
+  background-color: #ffff;
+}
+
+.listUser .box--listUser .listUser--info {
+  width: 60%;
+  margin-left: 20px;
+}
+
+.listUser .box--listUser .listUser--info .info--text {
+  margin-top: 40px;
+  color: #ffff;
+  font-size: 30px;
+}
+
+.listUser .box--listUser .listUser--pay {
+  width: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.listUser .box--listUser .listUser--pay .pay--btn {
+  width: 35%;
+  height: 35px;
+  color: black;
+  font-size: 20px;
+}
+/*# sourceMappingURL=home.component.css.map */

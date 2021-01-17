@@ -16,7 +16,7 @@ import { UsuariosService } from 'src/app/services/usuarios.service';
 </div>   
 
     <div class="modal-body box--body">
-          <p>{{mensagemDeAprovacao}}</p>
+          <h4>{{mensagemDeAprovacao}}</h4>
     </div>
     
   `
@@ -26,7 +26,8 @@ export class ModalMsg {
 
   constructor(public activeModal: NgbActiveModal) {}
 }
-// ----------------------------------------------------------------------
+// ----------------------------------------------MODAL ACIMA---------------------------------------------------
+
 @Component({
   selector: 'app-card-list',
   templateUrl: './card-list.component.html',
@@ -38,11 +39,14 @@ export class CardListComponent implements OnInit {
   transacao: Transacao[] = [];
   msg: any;
   usuarios: Usuario[] =[] ;
-  usuario: Usuario[];
+
+  usuarioDestino: any;
+
   valor: any = 0 ;
   numeroCartao: number ;
-  cardBusca: cartao[] = [];
-  cartaoValido: string ;
+  cardBusca: any;
+  confirmarCartaoValido: string ;
+  cartaoValido: string = '1111111111111111' ;
   cards: cartao[] = [
     // valid card
     {
@@ -57,112 +61,63 @@ export class CardListComponent implements OnInit {
       expiry_date: '01/20',
     },
   ];
-  constructor(public activeModal: NgbActiveModal, public transacaoService : TransacaoService,public usuariosService : UsuariosService, private router: Router, private modalService: NgbModal) { }
+  constructor (
+    public activeModal: NgbActiveModal,
+    public transacaoService : TransacaoService,
+    public usuariosService : UsuariosService,
+    private router: Router,
+    private modalService: NgbModal
+  ) {}
 
   ngOnInit(): void {
 
-    this.usuariosService.getUsuarios().subscribe(
-      x => {
-        this.usuarios = x
-      }
-    )
     this.valor = Number(this.valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}));
-  }
 
+  }
+  
   cartaoSelecionado(cartao: any){
     const crt = cartao.value
     this.numeroCartao = crt
     const cartaoDoBanco = this.cards.find(c => c.card_number == cartao.value)
-    // const nameEscolhido = this.usuarios.find(x => {
-    //   x.name == this.name
-    // })
+    this.cardBusca = cartaoDoBanco
     
-    this.usuarios = this.usuarios.map(d => d.name == this.name ?({...d, card_number: cartaoDoBanco?.card_number, cvv: cartaoDoBanco?.cvv,
-      expiry_date: cartaoDoBanco?.expiry_date, value: this.valor }) : d)
-
-    const transacaoMontada = localStorage['transacao'] ? JSON.parse(localStorage['transacao']) : [];
-    
-    transacaoMontada.push({
-      card_number: cartaoDoBanco?.card_number,  
-      cvv: cartaoDoBanco?.cvv,
-      expiry_date: cartaoDoBanco?.expiry_date,
-      // destination_user_id: idDousuario,
-      value: this.valor
-      });
-      localStorage.setItem('transacao', JSON.stringify(transacaoMontada));
+    this.usuariosService.getUsuarios().subscribe(
+      x => {
+        this.usuarios = x.map(x => (x.name == this.name ?({...x, card_number: cartaoDoBanco?.card_number, cvv: cartaoDoBanco?.cvv, expiry_date: cartaoDoBanco?.expiry_date, value: this.valor, destination_user_id: x.id }) : x ))
+      }
+    )
   }
 
-  efetuarPagamento(){
-    const storageValue = JSON.parse(String(localStorage.getItem('transacao')));
-    this.transacaoEmAndamento = storageValue;
-    localStorage.clear();
+efetuarPagamento(){
 
-    for (let item of this.transacaoEmAndamento ){
-      const cartaoValido = item.card_number
-      this.cartaoValido = cartaoValido
-    }
+  this.usuarioDestino = this.usuarios.filter(x => x.name == this.name )
+  this.transacao = this.usuarioDestino
+
+  for (let item of this.transacao ){
+    const numeroCartao = item.card_number
+    this.confirmarCartaoValido = String(numeroCartao)
     
-    if(this.cartaoValido == '1111111111111111'){
-      this.transacaoService.efetivarTransacao(this.transacaoEmAndamento).subscribe(
-        success => this.msg = "O Pagamento foi concluido com sucesso!",
-        error => this.msg = "O Pagamento não foi concluido com sucesso!",
-        )
-        console.log("cartão válido")
+    if(this.confirmarCartaoValido == this.cartaoValido){
+    
+      this.transacaoService.efetivarTransacao(this.transacao).subscribe(
+        // success => console.log("sucesso!"),
+        // error => console.log("negado!")
+      )
         this.openMOdal("O Pagamento foi concluido com sucesso!")
-      } else {
-        this.openMOdal("O Pagamento não foi concluido com sucesso!")
-        
-        return console.log("cartão inválido")
-      }
     }
-    
+      else {
+        this.openMOdal("O Pagamento não foi concluido com sucesso!")
+        return console.log("cartão inválido ")
+      }
+
+  }
+}
+
     openMOdal(msg? : any) {
       const modalRef = this.modalService.open(ModalMsg);
       modalRef.componentInstance.mensagemDeAprovacao = msg;
     }
 
+
   }
 
-
-// cartaoSelecionado(cartao: any){
-//   const crt = cartao.value
-//   this.numeroCartao = crt
-//   const cartaoDoBanco = this.cards.find(c => c.card_number == cartao.value)
-      
-//   // const nameEscolhido = this.usuarios.find(x => {
-//   //   x.name == this.name
-    
-//   // })
-  
-//   this.usuarios = this.usuarios.map(d => d.name == this.name ?({...d, card_number: cartaoDoBanco?.card_number, cvv: cartaoDoBanco?.cvv,
-//     expiry_date: cartaoDoBanco?.expiry_date, value: this.valor, destination_user_id: d.id  }) : d)
-// }
-
-// efetuarPagamento(){
-
-//   for (let item of this.usuarios ){
-//     const numeroCartao = item.card_number
-//     this.cartaoValido = String(numeroCartao)
-    
-//     for (let trans of this.transacao){
-//       trans.card_number = String(item.card_number)
-//       trans.cvv = Number(item.cvv)
-//       trans.destination_user_id = Number(item.destination_user_id)
-//       trans.expiry_date = String(item.expiry_date)
-//       trans.value = Number(item.value)
-//     }
-//     console.log(numeroCartao)
-//   if(numeroCartao == '1111111111111111'){
-    
-//       this.transacaoService.efetivarTransacao(this.transacao).subscribe(
-//         success => console.log("sucesso"),
-//         error => console.log("erro")
-//         )
-//     }
-//     else {
-      
-//       return console.log("cartão inválido ")
-//   }
-//   }
-
-// }
