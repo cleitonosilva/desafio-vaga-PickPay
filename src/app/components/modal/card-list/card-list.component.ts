@@ -36,10 +36,10 @@ export class CardListComponent implements OnInit {
   @Input() name: any;
   transacaoEmAndamento: Transacao [];
   transacao: Transacao[] = [];
-  msg: string;
+  msg: any;
   usuarios: Usuario[] =[] ;
   usuario: Usuario[];
-  valor: number = 0 ;
+  valor: any = 0 ;
   numeroCartao: number ;
   cardBusca: cartao[] = [];
   cartaoValido: string ;
@@ -116,16 +116,12 @@ export class CardListComponent implements OnInit {
       }
     }
     
-    openMOdal(msg : any) {
+    openMOdal(msg? : any) {
       const modalRef = this.modalService.open(ModalMsg);
       modalRef.componentInstance.mensagemDeAprovacao = msg;
     }
 
   }
-
-
-
-
 
 
 // cartaoSelecionado(cartao: any){

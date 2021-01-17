@@ -1,12 +1,10 @@
 <div class="modal-header box--header ">
     <p class="modal-title">Pagamento para <p class="header--destac" > {{name}}</p> 
-    <!-- <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button> -->
+   
 </div>   
 
     <div class="modal-body box--body">
-    <input type="text" class="body--input" (input)="valor = $event.target.value" placeholder="R$0,00" value="R$"/>
+    <input type="text" class="body--input" (input)="valor = $event.target" placeholder="R$0,00" value="R$"/>
            
       <select class="body--select" (change)="cartaoSelecionado($event.target)" >
         <option selected >Escolha o cartão</option>
@@ -16,8 +14,3 @@
       <button class="body--btn"  (click)="efetuarPagamento()" (click)="activeModal.close('Close click')" (Click)="openMOdal()">Pagar</button>
 
     </div>
-
-
-  <!-- <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
-</div> -->
