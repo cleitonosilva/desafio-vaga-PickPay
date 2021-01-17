@@ -1,0 +1,59 @@
+.box--header {
+  background: #353655;
+  color: #ffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  font-size: 25px;
+}
+
+.box--header .header--destac {
+  color: #cddb40;
+}
+
+.box--body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 200px;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.box--body .body--input {
+  width: 80%;
+  height: 40px;
+  border-radius: 10px;
+  outline: none;
+  color: #757575;
+  font-size: 20px;
+}
+
+.box--body .body--select {
+  width: 77%;
+  height: 40px;
+  border-radius: 10px;
+}
+
+.box--body .body--btn {
+  background: #efefef;
+  width: 15%;
+  height: 40px;
+  border-radius: 10px;
+  margin: none;
+  outline: none;
+  color: black;
+  font-size: 20px;
+}
+/*# sourceMappingURL=card-list.component.css.map */
