@@ -89,11 +89,11 @@ export class CardListComponent implements OnInit {
       // destination_user_id: idDousuario,
       value: this.valor
       });
-      localStorage.setItem('cart', JSON.stringify(transacaoMontada));
+      localStorage.setItem('transacao', JSON.stringify(transacaoMontada));
   }
 
   efetuarPagamento(){
-    const storageValue = JSON.parse(String(localStorage.getItem('cart')));
+    const storageValue = JSON.parse(String(localStorage.getItem('transacao')));
     this.transacaoEmAndamento = storageValue;
     localStorage.clear();
 
