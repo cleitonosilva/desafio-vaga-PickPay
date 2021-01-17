@@ -135,7 +135,6 @@ export class CardListComponent implements OnInit {
       
 //   // const nameEscolhido = this.usuarios.find(x => {
 //   //   x.name == this.name
-    
 //   // })
   
 //   this.usuarios = this.usuarios.map(d => d.name == this.name ?({...d, card_number: cartaoDoBanco?.card_number, cvv: cartaoDoBanco?.cvv,
