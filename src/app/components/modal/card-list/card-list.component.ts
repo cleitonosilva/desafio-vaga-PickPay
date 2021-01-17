@@ -26,7 +26,8 @@ export class ModalMsg {
 
   constructor(public activeModal: NgbActiveModal) {}
 }
-// ----------------------------------------------------------------------
+// ----------------------------------------------MODAL ACIMA---------------------------------------------------
+
 @Component({
   selector: 'app-card-list',
   templateUrl: './card-list.component.html',
@@ -76,7 +77,6 @@ export class CardListComponent implements OnInit {
         this.usuarios = x.map(x => (x.name == this.name ?({...x, card_number: cartaoDoBanco?.card_number, cvv: cartaoDoBanco?.cvv, expiry_date: cartaoDoBanco?.expiry_date, value: this.valor, destination_user_id: x.id }) : x ))
       }
     )
-
   }
 
 efetuarPagamento(){
@@ -91,13 +91,15 @@ efetuarPagamento(){
     if(this.confirmarCartaoValido == this.cartaoValido){
     
       this.transacaoService.efetivarTransacao(this.transacao).subscribe(
-        success => this.msg = "O Pagamento foi concluido com sucesso!",
-        error => this.msg = "O Pagamento não foi concluido com sucesso!",
-        )
+        // success => console.log("sucesso!"),
+        // error => console.log("negado!")
+      )
+        this.openMOdal("O Pagamento foi concluido com sucesso!")
     }
-    else {
-      return console.log("cartão inválido ")
-  }
+      else {
+        this.openMOdal("O Pagamento não foi concluido com sucesso!")
+        return console.log("cartão inválido ")
+      }
   }
 }
     openMOdal(msg : any) {
@@ -106,60 +108,3 @@ efetuarPagamento(){
     }
 
   }
-
-
-
-
-
-
-
-
-
-
-
-// cartaoSelecionado(cartao: any){
-//   const crt = cartao.value
-//   this.numeroCartao = crt
-//   const cartaoDoBanco = this.cards.find(c => c.card_number == cartao.value)
-//   // const nameEscolhido = this.usuarios.find(x => {
-//   //   x.name == this.name
-//   // })
-  
-//   this.usuarios = this.usuarios.map(d => d.name == this.name ?({...d, card_number: cartaoDoBanco?.card_number, cvv: cartaoDoBanco?.cvv,
-//     expiry_date: cartaoDoBanco?.expiry_date, value: this.valor }) : d)
-
-//   const transacaoMontada = localStorage['transacao'] ? JSON.parse(localStorage['transacao']) : [];
-  
-//   transacaoMontada.push({
-//     card_number: cartaoDoBanco?.card_number,  
-//     cvv: cartaoDoBanco?.cvv,
-//     expiry_date: cartaoDoBanco?.expiry_date,
-//     // destination_user_id: idDousuario,
-//     value: this.valor
-//     });
-//     localStorage.setItem('transacao', JSON.stringify(transacaoMontada));
-// }
-
-// efetuarPagamento(){
-//   const storageValue = JSON.parse(String(localStorage.getItem('transacao')));
-//   this.transacaoEmAndamento = storageValue;
-//   localStorage.clear();
-
-//   for (let item of this.transacaoEmAndamento ){
-//     const cartaoValido = item.card_number
-//     this.cartaoValido = cartaoValido
-//   }
-  
-//   if(this.cartaoValido == '1111111111111111'){
-//     this.transacaoService.efetivarTransacao(this.transacaoEmAndamento).subscribe(
-//       success => this.msg = "O Pagamento foi concluido com sucesso!",
-//       error => this.msg = "O Pagamento não foi concluido com sucesso!",
-//       )
-//       console.log("cartão válido")
-//       this.openMOdal("O Pagamento foi concluido com sucesso!")
-//     } else {
-//       this.openMOdal("O Pagamento não foi concluido com sucesso!")
-      
-//       return console.log("cartão inválido")
-//     }
-//   }
