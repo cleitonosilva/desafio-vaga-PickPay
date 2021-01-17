@@ -37,9 +37,11 @@ export class CardListComponent implements OnInit {
   @Input() name: any;
   transacaoEmAndamento: Transacao [];
   transacao: Transacao[] = [];
-  msg: string;
+  msg: any;
   usuarios: Usuario[] =[] ;
+
   usuarioDestino: any;
+
   valor: any = 0 ;
   numeroCartao: number ;
   cardBusca: any;
@@ -107,11 +109,15 @@ efetuarPagamento(){
         this.openMOdal("O Pagamento não foi concluido com sucesso!")
         return console.log("cartão inválido ")
       }
+
   }
 }
+
     openMOdal(msg? : any) {
       const modalRef = this.modalService.open(ModalMsg);
       modalRef.componentInstance.mensagemDeAprovacao = msg;
     }
 
+
   }
+
