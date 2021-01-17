@@ -1,4 +1,9 @@
 export class Transacao {
+  // Card Info
+  card_number: string;
+  cvv: number;
+  expiry_date: string;
+  
    // Destination User ID
   destination_user_id: number;
 
