@@ -59,11 +59,18 @@ export class CardListComponent implements OnInit {
       expiry_date: '01/20',
     },
   ];
-  constructor(public activeModal: NgbActiveModal, public transacaoService : TransacaoService,public usuariosService : UsuariosService, private router: Router, private modalService: NgbModal) { }
+  constructor (
+    public activeModal: NgbActiveModal,
+    public transacaoService : TransacaoService,
+    public usuariosService : UsuariosService,
+    private router: Router,
+    private modalService: NgbModal
+  ) {}
 
   ngOnInit(): void {
-    
+
     this.valor = Number(this.valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}));
+
   }
   
   cartaoSelecionado(cartao: any){
