@@ -22,7 +22,7 @@ O projeto **Desafio Pick-Pay** é uma aplicação de pagamentos via cartão, ond
 ---  
 # Fonte 
 
-Afim de colocar em prática meu conhecimento e meus estudos, peguei o **desafio da Pick-Pay** a qual já estavam as regras de negócio. o desafio é correspondente a um desafio para vaga de desenvolvedor front-end o link é 
+Afim de colocar em prática meu conhecimento e meus estudos, peguei o **desafio da Pick-Pay** a qual já estavam as regras de negócio. o desafio é correspondente a uma aplicação para vaga de desenvolvedor front-end o link do desafio é
 https://github.com/PicPay/picpay-desafio-frontend .
 
 ---
