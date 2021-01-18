@@ -45,6 +45,15 @@
         outline: none;
         color: black;
         font-size: 20px;
+
+        &:hover{
+        width:35%;
+        height: 40px;
+        color: #ffff;
+        font-size: 20px;
+        background: #21c15e;
+        border-radius: 5px}
+
     }
 
 }
