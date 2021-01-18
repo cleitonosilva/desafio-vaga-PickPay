@@ -1,5 +1,5 @@
 <h1 align="center">
-<img src="./dist/desafioPickpay/assets/img/picpay-logo.png">
+<img src="./src/assets/img/picpay-bg-1.png">
 </h1>
  ---
 <h1 align="center">    
