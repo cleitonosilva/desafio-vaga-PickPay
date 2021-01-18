@@ -3,7 +3,7 @@
 </h1>
  ---
 <h1>    
-<img src="./src/assets/img/Animated GIF-downsized.gif">
+<img src="./src/assets/img/Animated GIF-downsized_large.gif">
 </h1>
  ---
 
