@@ -83,7 +83,7 @@ export class CardListComponent implements OnInit {
     
     this.usuariosService.getUsuarios().subscribe(
       x => {
-        this.usuarios = x.map(x => (x.name == this.name ?({...x, card_number: cartaoDoBanco?.card_number, cvv: cartaoDoBanco?.cvv, expiry_date: cartaoDoBanco?.expiry_date, value: this.valor, destination_user_id: x.id }) : x ))
+        this.usuarios = x.map(x => (x.name == this.name ?({...x, card_number: cartaoDoBanco?.card_number, cvv: cartaoDoBanco?.cvv, expiry_date: cartaoDoBanco?.expiry_date, value: this.valor.value, destination_user_id: x.id }) : x ))
       }
     )
   }

@@ -9,7 +9,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CardListComponent } from './components/modal/card-list/card-list.component';
 import { FormsModule }   from '@angular/forms';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
-
+import { NgxMaskModule, IConfig } from 'ngx-mask'
 
 @NgModule({
   declarations: [
@@ -23,7 +23,8 @@ import { CurrencyMaskModule } from 'ng2-currency-mask';
     HttpClientModule,
     NgbModule,
     FormsModule,
-    CurrencyMaskModule
+    CurrencyMaskModule,
+    NgxMaskModule.forRoot()
 
   ],
   providers: [],

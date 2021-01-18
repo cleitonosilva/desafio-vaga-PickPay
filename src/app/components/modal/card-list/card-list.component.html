@@ -4,7 +4,7 @@
 </div>   
 
     <div class="modal-body box--body">
-    <input type="text" class="body--input" (input)="valor = $event.target" placeholder="R$0,00" value="R$"/>
+    <input type="text" class="body--input" (input)="valor = $event.target" placeholder="R$0,00" prefix="R$" mask="000000"/>
            
       <select class="body--select" (change)="cartaoSelecionado($event.target)" >
         <option selected >Escolha o cartão</option>
