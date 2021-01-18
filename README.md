@@ -1,5 +1,6 @@
 <h1 align="center" width="30%">
-<img src="./src/assets/img/picpay-bg-1.png">
+<img src="./src/assets/img/picpay-logo-13.png">
+
 </h1>
  ---
 <h1 align="center">    
