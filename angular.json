@@ -123,6 +123,10 @@
               "devServerTarget": "desafioPickpay:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular-schule/ngx-deploy-starter:deploy",
+          "options": {}
         }
       }
     }
