@@ -2,7 +2,7 @@
 <img src="./dist/desafioPickpay/assets/img/picpay-logo.png">
 </h1>
  ---
-<h1>    
+<h1 align="center">    
 <img src="./src/assets/img/Animated GIF-downsized_large.gif">
 </h1>
  ---
