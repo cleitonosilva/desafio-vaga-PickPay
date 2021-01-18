@@ -90,16 +90,14 @@ export class CardListComponent implements OnInit {
 
 efetuarPagamento(){
 
-  this.usuarioDestino = this.usuarios.filter(x => x.name == this.name )
-  this.transacao = this.usuarioDestino
-
-  for (let item of this.transacao ){
-    const numeroCartao = item.card_number
-    this.confirmarCartaoValido = String(numeroCartao)
-    
+  this.usuarioDestino = this.usuarios.find(x => x.name == this.name )
+  // this.transacao = this.usuarioDestino
+    this.confirmarCartaoValido = String(this.usuarioDestino.card_number)
+   
+    if(this.usuarioDestino){
     if(this.confirmarCartaoValido == this.cartaoValido){
     
-      this.transacaoService.efetivarTransacao(this.transacao).subscribe(
+      this.transacaoService.efetivarTransacao(this.usuarioDestino).subscribe(
         // success => console.log("sucesso!"),
         // error => console.log("negado!")
       )
@@ -109,8 +107,8 @@ efetuarPagamento(){
         this.openMOdal("O Pagamento não foi concluido com sucesso!")
         return console.log("cartão inválido ")
       }
-
-  }
+    }
+  
 }
 
     openMOdal(msg? : any) {
