@@ -41,7 +41,25 @@
     margin-top: 2px;
     display: flex;
     flex-direction: row;
- 
+        
+    &:hover{
+    width: 80%;
+    height: 150px;
+    background: #353655d7;
+    margin-top: 2px;
+    display: flex;
+    flex-direction: row;
+    
+
+    &:hover .img--circle{
+        width: 100px;
+        height: 100px;
+        margin-right:20px;
+    
+        border-radius: 100%;
+        background-color: #ffff;
+        }
+    }
 
  .listUser--img{
      width: 20%;
@@ -56,6 +74,8 @@
     
         border-radius: 100%;
         background-color: #ffff;
+
+        
      }
  }
 
@@ -79,9 +99,19 @@
 
      .pay--btn{
         width:35%;
-        height: 35px;
+        height: 40px;
         color: black;
         font-size: 20px;
+        border-radius: 5px;
+
+        &:hover{
+        width:35%;
+        height: 40px;
+        color: #ffff;
+        font-size: 20px;
+        background: #21c15e;
+        border-radius: 5px}
+
      }
 
 
