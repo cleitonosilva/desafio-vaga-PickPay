@@ -1,4 +1,4 @@
-<h1 align="center">
+<h1 align="center" width="50%">
 <img src="./src/assets/img/picpay-bg-1.png">
 </h1>
  ---
