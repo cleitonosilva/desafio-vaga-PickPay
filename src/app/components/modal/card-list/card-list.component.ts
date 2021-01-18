@@ -92,7 +92,7 @@ efetuarPagamento(){
 
   this.usuarioDestino = this.usuarios.find(x => x.name == this.name )
   // this.transacao = this.usuarioDestino
-    this.confirmarCartaoValido = String(this.usuarioDestino.card_number)
+    this.confirmarCartaoValido = this.usuarioDestino.card_number
    
     if(this.usuarioDestino){
     if(this.confirmarCartaoValido == this.cartaoValido){
@@ -108,9 +108,7 @@ efetuarPagamento(){
         return console.log("cartão inválido ")
       }
     }
-  
 }
-
     openMOdal(msg? : any) {
       const modalRef = this.modalService.open(ModalMsg);
       modalRef.componentInstance.mensagemDeAprovacao = msg;
